@@ -43,10 +43,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     //products routes 
-    Route::get('/products',[ProductController::class,'index'])->name('admin.products.index');
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::post('/products/store',[ProductController::class,'store'])->name('admin.products.store');
 
 });
 
 //end
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

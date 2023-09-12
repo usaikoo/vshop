@@ -18,6 +18,9 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
-        "flowbite": "^1.8.1"
+        "element-plus": "^2.3.12",
+        "flowbite": "^1.8.1",
+        "sweetalert2": "^11.7.27",
+        "vue-sweetalert2": "^5.0.5"
     }
 }
