@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\ProductController as UserProductController;
+use App\Http\Controllers\User\ProductListController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +33,14 @@ Route::prefix('cart')->controller(CartController::class)->group(function () {
     Route::patch('update/{product}','update')->name('cart.update');
     Route::delete('delete/{product}','delete')->name('cart.delete');
 });
+
+//routes for products list and filter 
+Route::prefix('products')->controller(ProductListController::class)->group(function ()  {
+    Route::get('/','index')->name('products.index');
+    
+});
+
+
 
 //end
 
