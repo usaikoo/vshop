@@ -65,11 +65,11 @@ watch(selectedCategories, () => {
     updateFilteredProducts()
 })
 
-function updateFilteredProducts (){
-    router.get('products',{
+function updateFilteredProducts() {
+    router.get('products', {
         brands: selectedBrands.value,
         categories: selectedCategories.value
-    },{
+    }, {
         preserveState: true,
         replace: true
     })
@@ -250,7 +250,8 @@ function updateFilteredProducts (){
                                     <DisclosurePanel class="pt-6">
                                         <div class="space-y-4">
                                             <div v-for="brand in brands" :key="brand.id" class="flex items-center">
-                                                <input :id="`filter-${brand.id}`" :value="brand.id" type="checkbox" v-model="selectedBrands"
+                                                <input :id="`filter-${brand.id}`" :value="brand.id" type="checkbox"
+                                                    v-model="selectedBrands"
                                                     class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
                                                 <label :for="`filter-${brand.id}`" class="ml-3 text-sm text-gray-600">{{
                                                     brand.name }}</label>
@@ -277,7 +278,8 @@ function updateFilteredProducts (){
                                         <div class="space-y-4">
                                             <div v-for="category in categories" :key="category.id"
                                                 class="flex items-center">
-                                                <input :id="`filter-${category.id}`" :value="category.id" type="checkbox" v-model="selectedCategories"
+                                                <input :id="`filter-${category.id}`" :value="category.id" type="checkbox"
+                                                    v-model="selectedCategories"
                                                     class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
                                                 <label :for="`filter-${category.id}`" class="ml-3 text-sm text-gray-600">{{
                                                     category.name }}</label>
@@ -300,5 +302,4 @@ function updateFilteredProducts (){
             </div>
         </div>
 
-    </UserLayouts>
-</template>
+    </UserLayouts></template>

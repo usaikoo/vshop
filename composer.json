@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "spatie/laravel-sluggable": "^3.5",
+        "stripe/stripe-php": "^12.3",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

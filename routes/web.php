@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\ProductListController;
 use App\Http\Controllers\User\UserController;
@@ -15,14 +17,20 @@ use Inertia\Inertia;
 //user rotues
 
 Route::get('/', [UserController::class,'index'])->name('home');
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //chekcout 
+    Route::prefix('checkout')->controller(CheckoutController::class)->group((function()  {
+        Route::post('order','store')->name('checkout.store');
+        Route::get('success','success')->name('checkout.success');
+        Route::get('cancel','cancel')->name('checkout.cancel');
+    }));
+  
 });
 
 //add to cart 
