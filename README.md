@@ -17,3 +17,4 @@ Make sure you have environment setup properly. You will need MySQL, PHP8.1, Node
 8. Open new terminal and navigate to the project root directory
    Run `npm install`
 9. Run `npm run dev` to start vite server for Laravel frontend
+10. For Stripe Api key, please go to .env file and replace with your api key for this variable ```STRIPE_KEY="REPLACE WITH YOUR STRIP API KEY HERE"```
